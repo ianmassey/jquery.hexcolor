@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>jquery.hexColor.js - test page</title>
+	<style type="text/css">
+		p {color:green;}
+		#results p {color:#333;}
+		#red {color:red;}
+		#blue {color:blue;}
+		#hex1 {color:#0f0f0f;}
+		#hex2 {color:#7fd548;}
+		.note {padding:5px;border:1px solid red;}
+	</style>
+	<script type="text/javascript" src="/~imassey/jquery%20plugins/jquery.js"></script>
+	<script type="text/javascript" src="jquery.hexColor.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var pCol = "JQuery reported color of 'p': " 
+									+ $("p").css("color")
+									+ "<br/>&nbsp;- Plugin reported color of 'p': "
+									+ $("p").hexColor();
+			var spanCol = "JQuery reported color of 'span': " 
+									+ $("span").css("color")
+									+ "<br/>&nbsp;- Plugin reported color of 'span': "
+									+ $("span").hexColor();
+			$("#results")
+				.append(noteWrap(pCol))
+				.append(noteWrap(spanCol));
+		});
+		
+		function noteWrap(el){
+			var bef = "<p class=\"note\">";
+			var aft = "</p>";
+			var ret = bef + el + aft;
+			return ret;
+		}
+	</script>
+</head>
+
+<body>
+
+	<p id="one">This is example paragraph number 1</p>
+	<p id="two">This is example paragraph number 2</p>
+	<p id="three">This is example paragraph number 3</p>
+
+	<span id="red">red</span><span id="blue">blue</span><span id="hex1">#0f0f0f</span><span id="hex2">#7fd548</span>
+	
+	<div id="results">
+		
+	</div>
+	
+</body>
+</html>
