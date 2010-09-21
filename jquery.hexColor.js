@@ -1,5 +1,5 @@
 /**
- * hexColor() util function v1.0 - ian@ianmassey.com - 20091124-1
+ * hexColor() util function v0.2 - ian@ianmassey.com - 20100920
  * - example usage - $("p").hexColor();
  *
  * - returns value of $elem.css('color') in hex format.
@@ -181,15 +181,11 @@
 		newArr = remDupes(newArr);
 
 		// externally return array or string
-		if(newArr.length > 1){
- 			return newArr;
-		} else {
-			return newArr[0];
-		}
+		return newArr.length > 1 ? newArr : newArr[0];
 
 		// hex-ify provided number, return hex value
 		function hex(x) {
-	  	return isNaN(x) ? "00" : hexArr[(x - x % 16) / 16] + hexArr[x % 16];
+			return isNaN(x) ? "00" : hexArr[(x - x % 16) / 16] + hexArr[x % 16];
 		}
 		
 		// remove dupes from provided array, return new array
@@ -207,4 +203,4 @@
 		}
 	
 	}
-} )(jQuery);
+})(jQuery);
