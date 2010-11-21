@@ -1,5 +1,5 @@
 /**
- * hexColor() util function v0.2 - ian@ianmassey.com - 20100920
+ * hexColor() util function v1.0 - ian@ianmassey.com - 20101120
  * - example usage - $("p").hexColor();
  *
  * - returns value of $elem.css('color') in hex format.
@@ -10,12 +10,15 @@
 	$.fn.hexColor = function(){
 		
 		var newArr = [],
-				hexArr = new Array("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"); 
+			hexArr = new Array("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"),
+			clr,
+			rgb,
+			colorWords;
 		
 		// iterate over provided collection, extract rgb then hex color values
 		this.each(function(){
-			var clr = $(this).css("color"),
-					rgb = [];
+			clr = $(this).css("color");
+			rgb = [];
 			
 			// if browser returns hex value, add to array
 			if(clr.length == 7 && clr.substr(0,1) == "#"){
@@ -23,7 +26,7 @@
 			// if browser returns color in word format, i.e. "green", convert:
 			} else if(clr.match(/^[a-zA-Z]+$/)){
 				// convert color in word format (ie)
-				var colorWords = {
+				colorWords = {
 					"aliceblue":"F0F8FF",
 					"antiquewhite":"FAEBD7",
 					"aqua":"00FFFF",
@@ -190,9 +193,13 @@
 		
 		// remove dupes from provided array, return new array
 		function remDupes(arr){
-			var filteredArr = new Array();
-			dupeLoop:for(var i = 0, j = arr.length; i < j; i++){
-				for(var k = 0, n = filteredArr.length; k < n; k++){
+			var filteredArr = new Array(),
+				i,
+				j,
+				k,
+				n;
+			dupeLoop:for(i = 0, j = arr.length; i < j; i++){
+				for(k = 0, n = filteredArr.length; k < n; k++){
 					if( filteredArr[k]==arr[i] ){
 						continue dupeLoop;
 					}
