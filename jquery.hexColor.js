@@ -1,14 +1,23 @@
 /**
- * hexColor() util function v1.0 - ian@ianmassey.com - 20101120
+ * hexColor() util function v2.0 - ian@ianmassey.com - 20110630
  * - example usage - $("p").hexColor();
  *
  * - returns value of $elem.css('color') in hex format.
  * - returns array if multiple color values in collection provided,
  *   or string if only one color found.
+ * 
+ * - $("p").backgroundHexColor(); does the same for the value of $elem.css('background-color');
  */
-( function($){
+(function($){
 	$.fn.hexColor = function(){
-		
+		return $.fn.hexColorBE(0, this);
+	};
+	
+	$.fn.backgroundHexColor = function(){
+		return $.fn.hexColorBE(1, this);
+	};
+	
+	$.fn.hexColorBE = function(type, self){
 		var newArr = [],
 			hexArr = new Array("0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"),
 			clr,
@@ -16,8 +25,8 @@
 			colorWords;
 		
 		// iterate over provided collection, extract rgb then hex color values
-		this.each(function(){
-			clr = $(this).css("color");
+		self.each(function(){
+			clr = type == 0 ? $(this).css("color") : $(this).css("background-color");
 			rgb = [];
 			
 			// if browser returns hex value, add to array
@@ -182,7 +191,7 @@
 		});
 
 		newArr = remDupes(newArr);
-
+		
 		// externally return array or string
 		return newArr.length > 1 ? newArr : newArr[0];
 
@@ -208,6 +217,5 @@
 			}
 			return filteredArr;
 		}
-	
-	}
+	};
 })(jQuery);
