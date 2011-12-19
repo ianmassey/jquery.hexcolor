@@ -1,4 +1,6 @@
-example usage - $("p").hexColor();
+# jQuery.hexColor
+
+example usage for text color - $("p").hexColor();
 
 - returns value of $elem.css('color') in hex format.
 - returns array if multiple color values in collection provided,
