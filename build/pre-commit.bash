@@ -6,5 +6,5 @@ then
   echo 'No changes made to plugin'
 else
   echo 'Building minimized plugin'
-  bash build/minimize.bash
+  bash build/minify.bash
 fi
