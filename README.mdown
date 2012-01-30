@@ -1,7 +1,11 @@
-example usage - $("p").hexColor();
+# example usage
+
+$("p").hexColor();
 
 - returns value of $elem.css('color') in hex format.
 - returns array if multiple color values in collection provided,
 	or string if only one color found.
 	
 $("p").backgroundHexColor(); does the same thing for $elem.css('background-color')
+
+### Released under the MIT License.

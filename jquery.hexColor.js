@@ -7,6 +7,8 @@
  *   or string if only one color found.
  * 
  * - $("p").backgroundHexColor(); does the same for the value of $elem.css('background-color');
+ *
+ * Released under the MIT License
  */
 (function($){
 	$.fn.hexColor = function(){
