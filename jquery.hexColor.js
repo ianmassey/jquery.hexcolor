@@ -1,5 +1,6 @@
 /**
- * hexColor() util function v2.0 - ian@ianmassey.com - 20110630
+ * hexColor() util function - ianmassey.com
+ * 
  * - example usage - $("p").hexColor();
  *
  * - returns value of $elem.css('color') in hex format.

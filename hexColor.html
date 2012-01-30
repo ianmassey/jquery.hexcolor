@@ -16,22 +16,22 @@
 		.blue-note {background:#fff;padding:5px;border:1px solid blue;}
 	</style>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js"></script>
-	<script type="text/javascript" src="jquery.hexColor.js"></script>
+	<script type="text/javascript" src="jquery.hexColor.min.js"></script>
 	<script type="text/javascript">
 		$(function(){
-			var pCol = "jQuery reported color of 'p': " 
-									+ $("p").css("color")
-									+ "<br/>&nbsp;- Plugin reported color of 'p': "
-									+ $("p").hexColor();
-			var pBackCol = "jQuery reported background-color of 'p': "
-									+ $("p").css("background-color")
-									+ "<br/>&nbsp;- Plugin reported background-color of 'p': "
-									+ $("p").backgroundHexColor();
-			var spanCol = "jQuery reported color of 'span': " 
+			var pCol = "jQuery reported color of example paragraphs: " 
+									+ $(".ex").css("color")
+									+ "<br/>&nbsp;- Plugin reported color of example paragraphs: "
+									+ $(".ex").hexColor(),
+					pBackCol = "jQuery reported background-color of example paragraphs: "
+									+ $(".ex").css("background-color")
+									+ "<br/>&nbsp;- Plugin reported background-color of example paragraphs: "
+									+ $(".ex").backgroundHexColor(),
+					spanCol = "jQuery reported color of 'span': " 
 									+ $("span").css("color")
 									+ "<br/>&nbsp;- Plugin reported color of 'span': "
-									+ $("span").hexColor();
-			var spanBackCol = "jQuery reported background-color of 'span': "
+									+ $("span").hexColor(),
+					spanBackCol = "jQuery reported background-color of 'span': "
 									+ $("span").css('background-color')
 									+ "<br/>&nbsp;- Plugin reported background-color of 'span': "
 									+ $("span").backgroundHexColor();
@@ -43,11 +43,10 @@
 		});
 		
 		function noteWrap(el, type){
-			var cls = type == 0 ? "note" : "blue-note";
-			var bef = "<p class=\"" + cls + "\">";
-			var aft = "</p>";
-			var ret = bef + el + aft;
-			return ret;
+			var cls = type == 0 ? "note" : "blue-note",
+					bef = "<p class=\"" + cls + "\">",
+					aft = "</p>";
+			return bef + el + aft;
 		}
 	</script>
 </head>
@@ -56,9 +55,9 @@
 	<h1>jQuery.hexColor Test Page</h1>
 	<p class="none">jQuery reports CSS color values as RGB numbers, like rgb(255,255,255).  Sometimes it's useful to have these in hex instead.</p>
 	<p class="none">hexColor hooks that up for you.  It also gives you an array of multiple colors from a jQuery collection containing multiple elements which all have different colors, rather than just a string representing the first element in the collection's color.</p>
-	<p id="one">This is example paragraph number 1</p>
-	<p id="two">This is example paragraph number 2</p>
-	<p id="three">This is example paragraph number 3</p>
+	<p class="ex" id="one">This is example paragraph number 1</p>
+	<p class="ex" id="two">This is example paragraph number 2</p>
+	<p class="ex" id="three">This is example paragraph number 3</p>
 
 	<span id="red">red</span><span id="blue">blue</span><span id="hex1">#0f0f0f</span><span id="hex2">#7fd548</span>
 	
